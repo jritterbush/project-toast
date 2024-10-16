@@ -34,7 +34,6 @@ function ToastPlayground() {
       <header>
         <img alt="Cute toast mascot" src="/toast.png" />
         <h1>Toast Playground</h1>
-        <p>{message}</p>
       </header>
 
       <div className={styles.controlsWrapper}>
