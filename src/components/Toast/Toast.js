@@ -6,6 +6,7 @@ import {
   Info,
   X,
 } from "react-feather";
+import { ToastContext } from "../ToastProvider";
 
 import VisuallyHidden from "../VisuallyHidden";
 
@@ -20,10 +21,14 @@ const ICONS_BY_VARIANT = {
 
 export const variantOptions = Object.keys(ICONS_BY_VARIANT);
 
-function Toast({ children, variant = "notice", onClose }) {
+function Toast({ id, children, variant = "notice" }) {
+  const { removeToast } = React.useContext(ToastContext);
   if (!children || Object.keys(ICONS_BY_VARIANT).indexOf(variant) === -1) {
     return;
   }
+  const handleRemoveToast = () => {
+    removeToast(id);
+  };
   const Icon = ICONS_BY_VARIANT[variant];
   return (
     <div className={`${styles.toast} ${styles[variant]}`}>
@@ -36,7 +41,7 @@ function Toast({ children, variant = "notice", onClose }) {
       </p>
       <button
         className={styles.closeButton}
-        onClick={onClose}
+        onClick={handleRemoveToast}
         aria-label="Dismiss message"
         aria-live="off"
       >
