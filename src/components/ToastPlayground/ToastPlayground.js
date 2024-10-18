@@ -8,20 +8,7 @@ import { ToastContext } from "../ToastProvider";
 function ToastPlayground() {
   const [message, setMessage] = React.useState("");
   const [variant, setVariant] = React.useState(variantOptions[0]);
-  const { toasts, addToast, removeToast, removeAllToasts } =
-    React.useContext(ToastContext);
-
-  React.useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        removeAllToasts();
-      }
-    };
-    document.addEventListener("keydown", handleKeyDown);
-    return () => {
-      document.removeEventListener("keydown", handleKeyDown);
-    };
-  }, [removeAllToasts]);
+  const { toasts, addToast, removeToast } = React.useContext(ToastContext);
 
   const handleChangeMessage = (event) => {
     setMessage(event.target.value);
