@@ -27,7 +27,7 @@ function ToastPlayground() {
   };
 
   return (
-    <form className={styles.wrapper} onSubmit={handleSubmit}>
+    <div className={styles.wrapper}>
       <header>
         <img alt="Cute toast mascot" src="/toast.png" />
         <h1>Toast Playground</h1>
@@ -35,7 +35,7 @@ function ToastPlayground() {
 
       <ToastShelf />
 
-      <div className={styles.controlsWrapper}>
+      <form className={styles.controlsWrapper} onSubmit={handleSubmit}>
         <div className={styles.row}>
           <label
             htmlFor="message"
@@ -80,8 +80,8 @@ function ToastPlayground() {
             <Button>Pop Toast!</Button>
           </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
   );
 }
 
