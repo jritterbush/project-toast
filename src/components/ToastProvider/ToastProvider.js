@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useEscapeKey } from "../../hooks/use-escape-key";
 export const ToastContext = React.createContext();
 
 function ToastProvider({ children }) {
@@ -17,6 +18,8 @@ function ToastProvider({ children }) {
   const removeAllToasts = () => {
     setToasts([]);
   };
+
+  useEscapeKey(removeAllToasts);
 
   return (
     <ToastContext.Provider
