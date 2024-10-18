@@ -8,7 +8,7 @@ import { ToastContext } from "../ToastProvider";
 function ToastPlayground() {
   const [message, setMessage] = React.useState("");
   const [variant, setVariant] = React.useState(variantOptions[0]);
-  const { toasts, addToast, removeToast } = React.useContext(ToastContext);
+  const { addToast } = React.useContext(ToastContext);
 
   const handleChangeMessage = (event) => {
     setMessage(event.target.value);
@@ -32,10 +32,6 @@ function ToastPlayground() {
     setVariant(variantOptions[0]);
   };
 
-  const handleClose = (id) => {
-    removeToast(id);
-  };
-
   return (
     <form className={styles.wrapper} onSubmit={handleSubmit}>
       <header>
@@ -43,9 +39,7 @@ function ToastPlayground() {
         <h1>Toast Playground</h1>
       </header>
 
-      {toasts.length > 0 && (
-        <ToastShelf toasts={toasts} onClose={handleClose} />
-      )}
+      <ToastShelf />
 
       <div className={styles.controlsWrapper}>
         <div className={styles.row}>
