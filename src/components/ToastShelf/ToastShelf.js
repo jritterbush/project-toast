@@ -9,7 +9,12 @@ function ToastShelf({ toasts = [], onClose }) {
   }
 
   return (
-    <ol className={styles.wrapper}>
+    <ol
+      role="region"
+      aria-live="polite"
+      aria-label="Notifications"
+      className={styles.wrapper}
+    >
       {toasts.map(({ id, message, variant }) => (
         <li key={id} className={styles.toastWrapper}>
           <Toast variant={variant} onClose={() => onClose(id)}>
