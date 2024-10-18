@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "../Button";
-import Toast, { variantOptions } from "../Toast";
+import { variantOptions } from "../Toast";
 import ToastShelf from "../ToastShelf";
 import styles from "./ToastPlayground.module.css";
 

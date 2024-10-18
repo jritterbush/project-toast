@@ -20,13 +20,13 @@ const ICONS_BY_VARIANT = {
 
 export const variantOptions = Object.keys(ICONS_BY_VARIANT);
 
-function Toast({ children, type = "notice", onClose }) {
-  if (!children || Object.keys(ICONS_BY_VARIANT).indexOf(type) === -1) {
+function Toast({ children, variant = "notice", onClose }) {
+  if (!children || Object.keys(ICONS_BY_VARIANT).indexOf(variant) === -1) {
     return;
   }
-  const Icon = ICONS_BY_VARIANT[type];
+  const Icon = ICONS_BY_VARIANT[variant];
   return (
-    <div className={`${styles.toast} ${styles[type]}`}>
+    <div className={`${styles.toast} ${styles[variant]}`}>
       <div className={styles.iconContainer}>
         <Icon size={24} />
       </div>
