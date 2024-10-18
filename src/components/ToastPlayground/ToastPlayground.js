@@ -11,14 +11,6 @@ function ToastPlayground() {
   const { addToast } = React.useContext(ToastContext);
   const messageRef = React.useRef();
 
-  const handleChangeMessage = (event) => {
-    setMessage(event.target.value);
-  };
-
-  const handleChangeVariant = (event) => {
-    setVariant(event.target.value);
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -58,7 +50,7 @@ function ToastPlayground() {
               ref={messageRef}
               className={styles.messageInput}
               value={message}
-              onChange={handleChangeMessage}
+              onChange={(event) => setMessage(event.target.value)}
             />
           </div>
         </div>
@@ -73,7 +65,7 @@ function ToastPlayground() {
                   type="radio"
                   name="variant"
                   value={variantOption}
-                  onChange={handleChangeVariant}
+                  onChange={(event) => setVariant(event.target.value)}
                   checked={variant === variantOption}
                 />
                 {variantOption}
